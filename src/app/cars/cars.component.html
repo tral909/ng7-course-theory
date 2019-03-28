@@ -4,7 +4,10 @@
 <app-car></app-car>
 <app-car></app-car>
 <hr>
-<!-- 1 sposob : (keyup)="onKeyUp($event)-->
-<!-- 2 sposob : #myInp (keyup | input)="onKeyUp(myInp.value)-->
+<!-- 1 sposob : (keyup)="onKeyUp($event) -->
+<!-- 2 sposob : #myInp (keyup | input)="onKeyUp(myInp.value) -->
+<!-- one way binding [] comp->temp () temp->comp -->
 <input type="text" class="form-control" (keyup.enter)="onKeyUp($event)">
+<!-- two way binding [(ngModel)] -->
+<input type="text" class="form-control" [(ngModel)]="inputText">
 <p>{{ inputText }}</p>
