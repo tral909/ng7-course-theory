@@ -1,13 +1,9 @@
+<input type="text" class="form-control" [(ngModel)]="carName">
 <button class="btn btn-primary" (click)="addCar()">Добавить машину</button>
-<p>{{ addCarStatus }}</p>
+<p *ngIf="!addCarStatus; else successStatus">Машина не добавлена</p>
+<ng-template #successStatus>
+    <p>Машина добавлена!</p>
+</ng-template>
 <hr>
 <app-car></app-car>
 <app-car></app-car>
-<hr>
-<!-- 1 sposob : (keyup)="onKeyUp($event) -->
-<!-- 2 sposob : #myInp (keyup | input)="onKeyUp(myInp.value) -->
-<!-- one way binding [] comp->temp () temp->comp -->
-<input type="text" class="form-control" (keyup.enter)="onKeyUp($event)">
-<!-- two way binding [(ngModel)] -->
-<input type="text" class="form-control" [(ngModel)]="inputText">
-<p>{{ inputText }}</p>
