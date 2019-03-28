@@ -1,22 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-car',
-  template: `
-  <h4>Single Car</h4>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aliquam.</p>
-  `,
-  styles: [`
-  h4 {
-    color: brown;
-  }
-  `]
+  templateUrl: './car.component.html',
+  styles: ['./car.component.css']
 })
-export class CarComponent implements OnInit {
+export class CarComponent {
+    carName = 'Ford';
+    carYear = 2017;
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+    getName() {
+        return this.carName;
+    }
 }
