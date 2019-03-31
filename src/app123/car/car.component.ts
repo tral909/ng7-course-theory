@@ -8,10 +8,10 @@ import {
     SimpleChanges,
     DoCheck,
     AfterContentInit,
-    AfterContentCheck,
+    AfterContentChecked,
     AfterViewInit,
-    AfterViewCheck,
-    OnDetroy
+    AfterViewChecked,
+    OnDestroy
 } from '@angular/core';
 
 @Component({
@@ -24,10 +24,10 @@ export class CarComponent implements
     OnChanges,
     DoCheck,
     AfterContentInit,
-    AfterContentCheck,
+    AfterContentChecked,
     AfterViewInit,
-    AfterViewCheck,
-    OnDetroy
+    AfterViewChecked,
+    OnDestroy
 {
     @Input('carItem') car: {name: string, year: number};
     @Input() name: string;
