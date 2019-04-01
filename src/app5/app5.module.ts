@@ -4,10 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app5.component';
+import { PowPipe } from './pow.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PowPipe
   ],
   imports: [
     BrowserModule,
