@@ -6,14 +6,25 @@ import { Component } from '@angular/core';
   template: `
   <div class="container">
     <div class="col-8 col-offset-2">
-      <h5>{{ num }}</h5>
-      <h5>{{ num | app5Pow }}</h5>
-      <h5>{{ 6 | app5Pow:2 }}</h5>
-      <h5>{{ num | app5Pow:3:'=' }}</h5>
+    <input type="text" class="form-control" [(ngModel)]="searchCar">
+    <hr>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let car of cars | carFilter:searchCar:'name'; let i = index">
+          <b>{{ i + 1 }}</b> {{ car.name }} <i>{{ car.descr }}</i>
+        </li>
+      </ul>
     </div>
   </div>
   `
 })
 export class AppComponent {
-  num = 2;
+  searchCar='';
+  cars = [
+    {name: 'Ford', descr: 'WFM 1'},
+    {name: 'Mazda', descr: 'WFM 2'},
+    {name: 'Bently', descr: 'WFM 3'},
+    {name: 'Audi', descr: 'WFM 4'},
+    {name: 'Mercedes', descr: 'WFM 5'},
+    {name: 'BMW', descr: 'WFM 6'}
+  ]
 }
