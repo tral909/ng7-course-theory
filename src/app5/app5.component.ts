@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   <div class="container">
     <div class="col-8 col-offset-2">
     <input type="text" class="form-control" [(ngModel)]="searchCar">
+    <button class="btn btn-primary" (click)="addCar()">Добавить</button>
     <hr>
       <ul class="list-group">
         <li class="list-group-item" *ngFor="let car of cars | carFilter:searchCar:'name'; let i = index">
@@ -27,4 +28,11 @@ export class AppComponent {
     {name: 'Mercedes', descr: 'WFM 5'},
     {name: 'BMW', descr: 'WFM 6'}
   ]
+
+  addCar() {
+    this.cars.push({
+      name: 'New Car',
+      descr: 'WFM'
+    });
+  }
 }
