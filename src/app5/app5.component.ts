@@ -1,11 +1,16 @@
 import { Component } from '@angular/core';
+//import 'rxjs/Rx';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   //https://angular.io/docs/ts/latest/api/common/index/DatePipe-pipe.html
+  // firsth method <h1>{{ title }}</h1>
   template: `
   <div class="container">
     <div class="col-8 col-offset-2">
+
+    <h1>{{ asyncTitle | async }}</h1>
     <input type="text" class="form-control" [(ngModel)]="searchCar">
     <button class="btn btn-primary" (click)="addCar()">Добавить</button>
     <hr>
@@ -28,6 +33,27 @@ export class AppComponent {
     {name: 'Mercedes', descr: 'WFM 5'},
     {name: 'BMW', descr: 'WFM 6'}
   ]
+
+  //title = '';
+
+/*  asyncTitle = Observable.of('Async title 3 seconds')
+    .delay(3000)
+    .subscribe(str => this.title = str);*/
+
+  // first method for async appear title
+  /*asyncTitle = new Observable(observer => {
+      setTimeout(() => { 
+        observer.next('Async title 3 seconds');
+      },
+      3000);
+  })
+  .subscribe((str: string) => this.title = str);*/
+
+  asyncTitle = new Observable(observer => {
+      setTimeout(() => { 
+        observer.next('Async title 3 seconds');
+      }, 3000)
+  });
 
   addCar() {
     this.cars.push({
