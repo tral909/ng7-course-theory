@@ -18,7 +18,6 @@ import { CarAddComponent } from './car-add/car-add.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
