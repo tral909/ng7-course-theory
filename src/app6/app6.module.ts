@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app6.component';
 import { CarComponent } from './car/car.component';
 import { CarAddComponent } from './car-add/car-add.component';
+import { ConsoleService } from './console.service';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { CarAddComponent } from './car-add/car-add.component';
     FormsModule,
     HttpClientModule
   ],
+  providers: [ConsoleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
