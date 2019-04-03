@@ -7,7 +7,7 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent {
 
-  //@ViewChild('form') form: NgForm;
+  @ViewChild('form') form: NgForm;
     
   answers = [{
     type: 'yes',
@@ -20,7 +20,28 @@ export class AppComponent {
   defaultAnswer = 'no';
   defaultCountry = 'ua';
 
-  submitForm(form: NgForm) {
-    console.log('submitted!', form);
+  formData = {};
+  isSubmited = false;
+
+  submitForm() {
+    this.isSubmited = true;
+    this.formData = this.form.value;
+    this.form.reset();
+  }
+
+  addRandEmail() {
+    const randEmail = 'wfm@gmail.com';
+    // this.form.setValue({
+    //   user: {
+    //       pass: '',
+    //       email: randEmail
+    //   },
+    //   country: '',
+    //   answer: ''
+    // });
+    // doesnt reset form after add randEmail
+    this.form.form.patchValue({
+      user: {email: randEmail}
+    });
   }
 }
