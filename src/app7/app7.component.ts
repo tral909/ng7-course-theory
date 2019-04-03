@@ -3,7 +3,12 @@ import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app7.component.html'
+  templateUrl: './app7.component.html',
+  styles: [`
+    input.ng-invalid.ng-touched {
+      border: 1px solid red;
+    }
+  `]
 })
 export class AppComponent {
 

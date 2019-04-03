@@ -7,6 +7,8 @@
         class="form-control"
         ngModel
         name="email"
+        required
+        email
       >
     </div>
     <div class="form-group">
@@ -16,6 +18,7 @@
         class="form-control"
         ngModel
         name="pass"
+        required
       >
     </div>
     <div class="form-group">
@@ -24,6 +27,7 @@
         class="form-control"
         ngModel
         name="country"
+        required
       >
         <option value="ru">Россия</option>
         <option value="by">Белоруссия</option>
@@ -40,7 +44,11 @@
         > {{ans.text}}
       </label>
     </div>
-    <button class="btn btn-success" type="submit">Сохранить</button>
+    <button
+      class="btn btn-success"
+      type="submit"
+      [disabled]="!form.valid"
+    >Сохранить</button>
 
   </form>
 </div>
