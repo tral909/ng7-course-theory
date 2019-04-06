@@ -5,9 +5,19 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CarsService {
+    carUrl: string = 'http://localhost:3000/cars';
+
     constructor(private http: HttpClient) {}
 
     getCars() {
-        return this.http.get('http://localhost:3000/cars');
+        return this.http.get(this.carUrl);
+    }
+
+    postCar(carName: string) {
+        const data = {
+            name: carName,
+            color: 'blue'
+        };
+        return this.http.post(this.carUrl, data);
     }
 }
