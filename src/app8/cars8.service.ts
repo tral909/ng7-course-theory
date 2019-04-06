@@ -20,4 +20,9 @@ export class CarsService {
         };
         return this.http.post(this.carUrl, data);
     }
+
+    changeColor(car: any, color: string) {
+        car.color = color;
+        return this.http.put(this.carUrl + "/" + car.id, car);
+    }
 }

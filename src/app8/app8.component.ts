@@ -10,9 +10,22 @@ interface Car {
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app8.component.html'
+  templateUrl: './app8.component.html',
+  styles: [`
+      .badge {
+        float: right;
+      }  
+  `]
 })
 export class AppComponent {
+  colors = [
+      'red',
+      'blue',
+      'green',
+      'pink',
+      'yellow',
+      'grey'
+  ];
   cars = [];
   carName: string = '';
 
@@ -33,5 +46,18 @@ export class AppComponent {
               this.cars.push(car);
           });
       this.carName = '';
+  }
+
+  getRandColor() {
+      const num = Math.round(Math.random() * this.colors.length - 1);
+      return this.colors[num];
+  }
+
+  setNewColor(car: Car) {
+      this.carsService
+          .changeColor(car, this.getRandColor())
+          .subscribe((response) => {
+
+          });
   }
 }
