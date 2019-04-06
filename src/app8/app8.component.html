@@ -10,6 +10,7 @@
             {{car.name}}
             ({{car.color}})
             <button class="btn btn-sm btn-info" (click)="setNewColor(car)">Изменить цвет</button>
+            <button class="btn btn-sm btn-danger" (click)="deleteCar(car.id)">Удалить машину</button>
             <span class="badge" [ngStyle]="{background: car.color}">
                 {{car.id}}
             </span>

@@ -25,4 +25,8 @@ export class CarsService {
         car.color = color;
         return this.http.put(this.carUrl + "/" + car.id, car);
     }
+
+    deleteCar(id: string) {
+        return this.http.delete(this.carUrl + "/" + id);
+    }
 }

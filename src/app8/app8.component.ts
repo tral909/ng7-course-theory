@@ -57,7 +57,16 @@ export class AppComponent {
       this.carsService
           .changeColor(car, this.getRandColor())
           .subscribe((response) => {
+              console.log(response);
+          });
+  }
 
+  deleteCar(id: string) {
+      this.carsService
+          .deleteCar(id)
+          .subscribe((response) => {
+              console.log(response);
+              this.cars = this.cars.filter(c => c.id !== id)
           });
   }
 }
