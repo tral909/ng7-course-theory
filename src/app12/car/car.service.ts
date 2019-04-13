@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs';
+
 export class CarService {
     private isVisible = true;
 
@@ -11,5 +13,13 @@ export class CarService {
 
     getVisibility() {
         return this.isVisible;
+    }
+
+    getCarName(): Observable<string> {
+        return new Observable(observer => {
+            setTimeout(() => {
+                observer.next('Ford');
+            }, 100);
+        });
     }
 }
