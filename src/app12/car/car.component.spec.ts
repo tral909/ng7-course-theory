@@ -32,4 +32,22 @@ describe('CarComponent', () => {
         fixture.detectChanges();
         expect(component.isCarVisible).toEqual(carService.getVisibility());
     });
+
+    it(`it should display cat if is visible`, () => {
+        const carService = fixture.debugElement.injector.get(CarService);
+        carService.showCar();
+        fixture.detectChanges();
+        const nativeEl = fixture.debugElement.nativeElement;
+        const text = nativeEl.querySelector('span').textContent;
+        expect(text).toEqual('Car is visible');
+    });
+
+    it(`it shouldn't display cat if isn't visible`, () => {
+        const carService = fixture.debugElement.injector.get(CarService);
+        carService.hideCar();
+        fixture.detectChanges();
+        const nativeEl = fixture.debugElement.nativeElement;
+        const text = nativeEl.querySelector('span').textContent;
+        expect(text).not.toEqual('Car is visible');
+    });
 });
